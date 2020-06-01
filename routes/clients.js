@@ -10,19 +10,18 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { error } = validate(req.body);
+    const { error } = validate(req.body); 
     if (error) return res.status(400).send(error.details[0].message);
-    
-    let client = new Client ({
-        name = req.body.name,
-        phone = req.body.phone,
-        email = req.body.email,
-        category = req.body.category
+  
+    let client = new Client({ 
+      name: req.body.name,
+      isGold: req.body.isGold,
+      phone: req.body.phone
     });
-   
     client = await client.save();
+    
     res.send(client);
-});
+  });
 
 router.put('/:id', async (req, res) => {
     const { error } = validate(req.body);
