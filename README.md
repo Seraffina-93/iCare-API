@@ -72,6 +72,8 @@ Se utiliza [GitHub](http://github.com/) para control de versiones.
 ## Autores
 
 * **Lucrecia Amenta** - *Initial work* - [Seraffina-93](https://github.com/Seraffina-93)
+* **Joaquin Amenta** - *Initial work* - [Aisedohr](https://github.com/Aisedohr)
+
 
 Ver también lista de [contribuidores](https://github.com/Seraffina-93/iCare-API/contributors) que participaron en este proyecto.
 
