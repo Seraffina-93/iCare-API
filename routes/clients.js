@@ -11,13 +11,17 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { error } = validate(req.body); 
+    
     if (error) return res.status(400).send(error.details[0].message);
   
     let client = new Client({ 
       name: req.body.name,
-      isGold: req.body.isGold,
-      phone: req.body.phone
+      phone: req.body.phone,
+      email: req.body.email,
+      instragram: req.body.instagram,
+      address: req.body.address
     });
+
     client = await client.save();
     
     res.send(client);
@@ -25,13 +29,15 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     const { error } = validate(req.body);
+    
     if (error) return res.status(400).send(error.details[0].message);
 
     const client = await Client.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         phone: req.body.phone,
         email: req.body.email,
-        category: req.body.category
+        instragram: req.body.instagram,
+        address: req.body.address
     }, { new: true });
 
     if (!client) return res.status(404).send('The client with the given ID was not found.');
